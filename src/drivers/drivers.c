@@ -14,7 +14,9 @@
 
 #include "includes.h"
 
-
+#ifdef CONFIG_DRIVER_AR6000
+extern struct wpa_driver_ops wpa_driver_ar6000_ops; /* driver_ar6000.c */
+#endif /* CONFIG_DRIVER_AR6000 */
 #ifdef CONFIG_DRIVER_WEXT
 extern struct wpa_driver_ops wpa_driver_wext_ops; /* driver_wext.c */
 #endif /* CONFIG_DRIVER_WEXT */
@@ -65,6 +67,9 @@ extern struct wpa_driver_ops wpa_driver_none_ops; /* driver_none.c */
 
 struct wpa_driver_ops *wpa_drivers[] =
 {
+#ifdef CONFIG_DRIVER_AR6000
+	&wpa_driver_ar6000_ops,
+#endif /* CONFIG_DRIVER_AR6000 */
 #ifdef CONFIG_DRIVER_WEXT
 	&wpa_driver_wext_ops,
 #endif /* CONFIG_DRIVER_WEXT */

@@ -55,7 +55,9 @@ struct wpa_driver_wext_data {
 	int driver_is_started;
 	int skip_disconnect;
 	int bgscan_enabled;
-#endif
+	int host_asleep;
+	int scan_channels;
+#endif 
 };
 
 int wpa_driver_wext_get_bssid(void *priv, u8 *bssid);
